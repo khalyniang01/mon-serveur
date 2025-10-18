@@ -1,26 +1,13 @@
-
-const cors = require('cors');
-const path = require('path');const jsonServer = require('json-server');
-
-const server = jsonServer.create();
-const router = jsonServer.router('db.json');
-const middlewares = jsonServer.defaults();
-
-const PORT = process.env.PORT || 3001;
-
-// CORS pour permettre les requêtes depuis React
-server.use(cors());
-server.use(middlewares);
-
-// Routes personnalisées (optionnel)
-server.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
-});
-
-// Routes json-server
-server.use(router);
-
-server.listen(PORT, () => {
-  console.log(🚀 JSON Server is running on port ${PORT});
-  console.log(📍 URL: http://localhost:${PORT});
-});
+{
+  "posts": [
+    { "id": "1", "title": "a title", "views": 100 },
+    { "id": "2", "title": "another title", "views": 200 }
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" },
+    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
